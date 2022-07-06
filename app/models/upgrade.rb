@@ -1,0 +1,3 @@
+class Upgrade < ApplicationRecord
+    
+end
