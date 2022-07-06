@@ -19,7 +19,7 @@ RSpec.describe "upgrades index page", type: :feature do
             is_used: false)
    
 
-        visit '/cars'
+        visit "/cars"
 
         expect(page).to have_content(car_1.brand_of_car)
         expect(page).to have_content(car_2.brand_of_car)
