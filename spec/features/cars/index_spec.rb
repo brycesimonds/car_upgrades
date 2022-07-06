@@ -13,14 +13,15 @@ RSpec.describe "upgrades index page", type: :feature do
             what_line_of_car: "4Runner",
             year: 2005,
             is_used: true)
-        # car_2 = Car.create!(car_make_name: "Toyota",
-        #     car_type_name: "Camry",
-        #     year: 2022,
-        #     is_used: false)
+        car_2 = Car.create!(brand_of_car: "Ford",
+            what_line_of_car: "Taurus",
+            year: 2022,
+            is_used: false)
+   
 
         visit '/cars'
 
-        expect(page).to have_content(car_1.make_name)
-        expect(page).to have_content(car_2.make_name)
+        expect(page).to have_content(car_1.brand_of_car)
+        expect(page).to have_content(car_2.brand_of_car)
     end
 end 
