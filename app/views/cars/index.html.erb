@@ -1,0 +1,8 @@
+<h1>Welcome!</h1>
+<p>Below is the make name of each car record below:</p>
+
+<ul>
+<% @cars.each do |car| %>
+    <li><%= car.brand_of_car %></li>
+<% end %>
+</ul>

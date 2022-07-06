@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-# User Story 3, Child Index 
-
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes:
-
 RSpec.describe "upgrades index page", type: :feature do 
     it "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
         upgrade_1 = Upgrade.create!(car_part_name: "Suspension",
