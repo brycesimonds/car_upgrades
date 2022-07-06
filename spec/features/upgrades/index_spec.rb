@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-# User Story 1, Parent Index 
+# User Story 3, Child Index 
 
-# For each parent table
 # As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
+# When I visit '/child_table_name'
+# Then I see each Child in the system including the Child's attributes:
 
 RSpec.describe "upgrades index page", type: :feature do 
     it "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
@@ -23,7 +22,6 @@ RSpec.describe "upgrades index page", type: :feature do
         expect(page).to have_content("Does the upgrade need a mechanic? #{upgrade_1.need_mechanic}")
         expect(page).to have_content(upgrade_2.car_part_name)
         expect(page).to have_content("Cost of #{upgrade_2.car_part_name} parts is $#{upgrade_2.cost_of_part}")
-        expect(page).to have_content("Does the upgrade need a mechanic? #{upgrade_2.need_mechanic}")
-                                    
+        expect(page).to have_content("Does the upgrade need a mechanic? #{upgrade_2.need_mechanic}")                      
     end
 end
