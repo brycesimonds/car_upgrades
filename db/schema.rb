@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2022_07_06_221215) do
     t.string "what_line_of_car"
     t.integer "year"
     t.boolean "is_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "upgrades", force: :cascade do |t|
