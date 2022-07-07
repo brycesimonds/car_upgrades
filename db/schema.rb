@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_221215) do
+ActiveRecord::Schema.define(version: 2022_07_07_173227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 2022_07_06_221215) do
     t.boolean "need_mechanic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_upgrades_on_car_id"
   end
 
+  add_foreign_key "upgrades", "cars"
 end

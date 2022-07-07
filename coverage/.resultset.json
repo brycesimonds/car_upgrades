@@ -255,81 +255,10 @@
           null
         ]
       },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/spec/features/cars/show_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/spec/features/upgrades/index_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/spec/models/upgrade_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/models/upgrade.rb": {
         "lines": [
           1,
-          null,
+          1,
           null
         ]
       },
@@ -343,39 +272,12 @@
       "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/models/car.rb": {
         "lines": [
           1,
-          null,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/cars_controller.rb": {
-        "lines": [
           1,
           1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/upgrades_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
           null
         ]
       }
     },
-    "timestamp": 1657150502
+    "timestamp": 1657215814
   }
 }

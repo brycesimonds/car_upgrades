@@ -1,4 +1,4 @@
-class CreateUpgrade < ActiveRecord::Migration[5.2]
+class CreateUpgrades < ActiveRecord::Migration[5.2]
   def change
     create_table :upgrades do |t|
       t.string :car_part_name
