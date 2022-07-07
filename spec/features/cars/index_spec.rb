@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# User Story 1, Parent Index 
-
-# For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
-
 RSpec.describe "upgrades index page", type: :feature do 
     it 'can see the make name of each car record in the system' do 
         car_1 = Car.create!(brand_of_car: "Toyota",

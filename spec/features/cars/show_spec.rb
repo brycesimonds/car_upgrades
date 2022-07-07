@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# User Story 2, Parent Show 
-
-# As a visitor
-# When I visit '/parents/:id'
-# Then I see the parent with that id including the parent's attributes:
-# - data from each column that is on the parent table
-
 RSpec.describe "upgrades show page", type: :feature do 
     it 'shows the parent matching the id in the path including its attributes' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
