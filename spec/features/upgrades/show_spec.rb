@@ -7,7 +7,7 @@ require 'rails_helper'
 # Then I see the child with that id including the child's attributes:
 
 RSpec.describe "upgrades show page", type: :feature do 
-    it 'shows the parent matching the id in the path including its attributes' do 
+    it 'shows the child(upgrade) matching the id in the path including its attributes' do 
         car_1 = Car.create!(id: 1,
             brand_of_car: "Toyota",
             what_line_of_car: "4Runner",
