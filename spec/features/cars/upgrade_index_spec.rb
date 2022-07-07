@@ -32,7 +32,7 @@ RSpec.describe "car upgrades index page", type: :feature do
                                cost_of_part: 300,
                                need_mechanic: true)
    
-        visit "/cars/:car_id/upgrades"
+        visit "/cars/#{car_1.id}/upgrades"
 
         expect(page).to have_content(car_1.upgrades[0])
         expect(page).to have_content(car_1.upgrades[1])
