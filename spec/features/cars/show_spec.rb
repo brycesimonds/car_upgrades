@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "upgrades show page", type: :feature do 
-    it 'shows the parent matching the id in the path including its attributes' do 
+RSpec.describe "cars show page", type: :feature do 
+    it 'shows the parent(cars) matching the id in the path including its attributes' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
             what_line_of_car: "4Runner",
             year: 2005,
@@ -17,8 +17,6 @@ RSpec.describe "upgrades show page", type: :feature do
         expect(page).to have_content("Model: #{car_1.what_line_of_car}")
         expect(page).to have_content("Year: #{car_1.year}")
         expect(page).to have_content("Is it used?: #{car_1.is_used}")
-        expect(page).to have_content("This record created at: #{car_1.created_at}")
-        expect(page).to have_content("This record last updated at: #{car_1.updated_at}")
         expect(page).to_not have_content(car_2.brand_of_car)
     end
 end 
