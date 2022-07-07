@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-# User Story 5, Parent Children Index 
-
-# As a visitor
-# When I visit '/parents/:parent_id/child_table_name'
-# Then I see each Child that is associated with that Parent with each Child's attributes:
-
 RSpec.describe "car upgrades index page", type: :feature do 
     it 'can see the upgrades that are associated with the car, along with each upgrades attributes' do 
         car_1 = Car.create!(id:1,
@@ -34,9 +28,18 @@ RSpec.describe "car upgrades index page", type: :feature do
    
         visit "/cars/#{car_1.id}/upgrades"
 
-        expect(page).to have_content(car_1.upgrades[0])
-        expect(page).to have_content(car_1.upgrades[1])
-        expect(page).to_not have_content(car_2.upgrades[0])
-        expect(page).to_not have_content(car_2.upgrades[1])
+        expect(page).to have_content(car_1.upgrades[0].car_part_name)
+        expect(page).to have_content(car_1.upgrades[0].cost_of_part)
+        expect(page).to have_content(car_1.upgrades[0].need_mechanic)
+        expect(page).to have_content(car_1.upgrades[1].car_part_name)
+        expect(page).to have_content(car_1.upgrades[1].cost_of_part)
+        expect(page).to have_content(car_1.upgrades[1].need_mechanic)
+        expect(page).to_not have_content(car_2.upgrades[0].car_part_name)
+        expect(page).to_not have_content(car_2.upgrades[0].cost_of_part)
+        expect(page).to_not have_content(car_2.upgrades[1].car_part_name)
+        expect(page).to_not have_content(car_2.upgrades[1].cost_of_part)
+
+
+
     end
 end 
