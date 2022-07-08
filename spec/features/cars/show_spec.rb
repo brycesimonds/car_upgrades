@@ -19,4 +19,24 @@ RSpec.describe "cars show page", type: :feature do
         expect(page).to have_content("Is it used?: #{car_1.is_used}")
         expect(page).to_not have_content(car_2.brand_of_car)
     end
+
+    it 'shows the count of the number of upgrades associated with this car' do
+        Upgrade.destroy_all
+        car_1 = Car.create!(brand_of_car: "Toyota",
+            what_line_of_car: "4Runner",
+            year: 2005,
+            is_used: true)
+
+    
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
+        
+        visit "/cars/#{car_1.id}"
+
+        expect(page).to have_content("This car has #{car_1.upgrade_count} upgrades")
+    end
 end 
