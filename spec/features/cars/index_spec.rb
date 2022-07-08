@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-# User Story 6, Parent Index sorted by Most Recently Created 
-
-# As a visitor
-# When I visit the parent index,
-# I see that records are ordered by most recently created first
-# And next to each of the records I see when it was created
-
 RSpec.describe "upgrades index page", type: :feature do 
     it 'can see the make name of each car record in the system' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
