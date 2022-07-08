@@ -15,7 +15,7 @@ describe Car, type: :model do
 
     describe 'model actions' do 
         describe 'upgrade_count' do
-            it 'counts the number of upgrades associated with the particular car'
+            it 'counts the number of upgrades associated with the particular car' do
             Upgrade.destroy_all
             car_1 = Car.create!(brand_of_car: "Toyota",
                 what_line_of_car: "4Runner",
@@ -54,18 +54,7 @@ describe Car, type: :model do
             expect(car_1.upgrade_count).to eq(2)
             expect(car_2.upgrade_count).to eq(2)
             expect(car_3.upgrade_count).to eq(2)
+            end 
         end 
     end
 end
-
-
-describe "::artist_name_by_song_id" do
-      it "Create a test for a corresponding method that will find all artist names given a collection of song ids" do
-        Song.destroy_all
-        ras = @prince.songs.create!(title: 'Raspberry Beret', length: 345, play_count: 34)
-        purple = @prince.songs.create!(title: 'Purple Rain', length: 524, play_count: 19)
-        bury = @billie.songs.create!(title: 'bury a friend', length: 340, play_count: 1200000)
-        bad = @billie.songs.create!(title: 'bad guy', length: 240, play_count: 100000)
-        expect(Song.artist_name_by_song_id([ras.id, purple.id, bury.id, bad.id])).to eq(["Prince", "Billie Eilish"])
-      end
-    end
