@@ -1,8 +1,14 @@
 <h1>Welcome!</h1>
 <p>Below is the make name of each car record below:</p>
 
+
+<% @cars.each_with_index do |car, index| %>
+<div id="car-<%= index%>">
 <ul>
-<% @cars.each do |car| %>
     <li><%= car.brand_of_car %></li>
+        <ul>
+            <li>Created at: <%= car.created_at %></li>
+        </ul>
+    </ul>
+</div>
 <% end %>
-</ul>
