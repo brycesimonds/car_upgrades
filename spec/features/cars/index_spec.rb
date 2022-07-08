@@ -45,19 +45,19 @@ RSpec.describe "upgrades index page", type: :feature do
         visit '/cars'
 
         within "#car-0" do 
-            expect(page).to have_content("Toyota")
+            expect(page).to have_content("Rivian")
         end
 
         within "#car-1" do 
-            expect(page).to have_content("Ford")
-        end
-
-        within "#car-2" do 
             expect(page).to have_content("Kia")
         end
 
+        within "#car-2" do 
+            expect(page).to have_content("Ford")
+        end
+
         within "#car-3" do 
-            expect(page).to have_content("Rivian")
+            expect(page).to have_content("Toyota")
         end
     end
 end 
