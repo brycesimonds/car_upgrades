@@ -121,7 +121,7 @@ RSpec.describe "cars show page", type: :feature do
         
         visit "/cars/#{car_1.id}"
 
-        click_link 'Upgrades Index'
+        click_link 'Cars Index'
 
         expect(current_path).to eq('/cars')
     end
