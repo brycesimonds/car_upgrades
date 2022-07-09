@@ -1,3 +1,8 @@
+<h3>Navigation Links</h3>
+<ul id="nav_links">
+    <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
+</ul>
+
 <% @upgrades.each do |upgrade| %>
     <h1><%= upgrade.car_part_name %></h1>
     <p>Cost of <%= upgrade.car_part_name %> parts is $<%= upgrade.cost_of_part %></p>
