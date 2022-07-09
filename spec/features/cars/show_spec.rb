@@ -125,4 +125,48 @@ RSpec.describe "cars show page", type: :feature do
 
         expect(current_path).to eq('/cars')
     end
+
+    it 'displays a link at the top of the page that says go to this cars upgrades index' do
+        Upgrade.destroy_all
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+    
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
+        
+        visit "/cars/#{car_1.id}"
+
+        within "#nav_links" do 
+            expect(page).to have_content("This cars upgrades index")
+        end
+    end
+
+    it 'can click on the link and go to the cars specific upgrade index' do
+        Upgrade.destroy_all
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+    
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
+        
+        visit "/cars/#{car_1.id}"
+        
+        click_link 'This cars upgrades index'
+
+        expect(current_path).to eq('/cars/#{car_1.id}/upgrades')
+    end
 end 
