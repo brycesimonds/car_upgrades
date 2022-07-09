@@ -140,4 +140,54 @@ RSpec.describe "upgrades index page", type: :feature do
 
         expect(current_path).to eq('/upgrades')
     end
+
+    it 'displays a link at the top of the page that says Cars Index' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+        car_2 = Car.create!(brand_of_car: "Ford",
+                            what_line_of_car: "Taurus",
+                            year: 2022,
+                            is_used: false)
+        car_3 = Car.create!(brand_of_car: "Kia",
+                            what_line_of_car: "Sorento",
+                            year: 2013,
+                            is_used: true)
+        car_4 = Car.create!(brand_of_car: "Rivian",
+                            what_line_of_car: "R1T",
+                            year: 2022,
+                            is_used: false)
+
+        visit '/cars'
+
+        within "#nav_links" do 
+            expect(page).to have_content("Cars Index")
+        end
+    end
+
+    it 'can click on the link and go to the Cars Index' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+        car_2 = Car.create!(brand_of_car: "Ford",
+                            what_line_of_car: "Taurus",
+                            year: 2022,
+                            is_used: false)
+        car_3 = Car.create!(brand_of_car: "Kia",
+                            what_line_of_car: "Sorento",
+                            year: 2013,
+                            is_used: true)
+        car_4 = Car.create!(brand_of_car: "Rivian",
+                            what_line_of_car: "R1T",
+                            year: 2022,
+                            is_used: false)
+
+        visit '/cars'
+
+        click_link 'Cars Index'
+
+        expect(current_path).to eq('/cars')
+    end
 end 
