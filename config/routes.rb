@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   get '/cars', to: 'cars#index'
   get '/cars/:id', to: 'cars#show'
-  get '/cars/:car_id/upgrades', to: 'cars#upgrade_index'
+  get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
   get '/upgrades', to: 'upgrades#index'
   get '/upgrades/:id', to: 'upgrades#show'
 end

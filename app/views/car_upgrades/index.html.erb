@@ -4,10 +4,7 @@
     <li><%= link_to 'Cars Index', '/cars' %></li>
 </ul>
 
-<h1>Below is this car's upgrades:</h1>
-
-
-<% @car_upgrades.each do |upgrade| %>
+<% @upgrades.each do |upgrade| %>
     <h3><%= upgrade.car_part_name %></h3>
     <ul>
         <li>"Cost of part: <%= upgrade.cost_of_part %>"</li>
