@@ -154,7 +154,6 @@ RSpec.describe "cars show page", type: :feature do
                             what_line_of_car: "4Runner",
                             year: 2005,
                             is_used: true)
-
     
         car_1.upgrades.create!(car_part_name: "Suspension",
                                cost_of_part: 1200,
@@ -167,6 +166,6 @@ RSpec.describe "cars show page", type: :feature do
         
         click_link 'This cars upgrades index'
 
-        expect(current_path).to eq('/cars/#{car_1.id}/upgrades')
+        expect(current_path).to eq("/cars/#{car_1.id}/upgrades")
     end
 end 
