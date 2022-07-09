@@ -39,4 +39,26 @@ RSpec.describe "cars show page", type: :feature do
 
         expect(page).to have_content("This car has #{car_1.upgrade_count} upgrades")
     end
+
+    it 'displays a link at the top of the page that says Upgrades Index' do
+        Upgrade.destroy_all
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+    
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
+        
+        visit "/cars/#{car_1.id}"
+
+        within "#nav_links" do 
+            expect(page).to have_content("Upgrades Index")
+        end
+    end
 end 
