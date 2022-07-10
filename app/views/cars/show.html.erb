@@ -3,7 +3,7 @@
     <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
     <li><%= link_to 'Cars Index', '/cars' %></li>
     <li><%= link_to 'This cars upgrades index', "/cars/#{@car.id}/upgrades" %></li>
-    <li><%= link_to "Edit #{@car.brand_of_car}", "/cars/#{@car.id}/edit" %></li>
+    <li><%= link_to "Update #{@car.brand_of_car}", "/cars/#{@car.id}/edit" %></li>
 </ul>
 
 <h1><%= @car.brand_of_car %></h1>

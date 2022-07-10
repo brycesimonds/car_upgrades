@@ -22,7 +22,7 @@ RSpec.describe '' do
         
         visit "/cars/#{car_1.id}"
 
-        click_link("Edit #{car_1.brand_of_car}")
+        click_link("Update #{car_1.brand_of_car}")
        
         expect(current_path).to eq("/cars/#{car_1.id}/edit")
     end

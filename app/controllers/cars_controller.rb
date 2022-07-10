@@ -19,4 +19,8 @@ class CarsController < ApplicationController
     def car_params
         params.permit(:brand_of_car, :what_line_of_car, :year, :is_used)
     end
+
+    def edit
+        
+    end
 end
