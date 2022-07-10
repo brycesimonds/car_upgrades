@@ -14,7 +14,7 @@
 require 'rails_helper'
 
 RSpec.describe '' do
-    it 'has a clickable link new car that brings the user to /cars/car_id/edit' do 
+    it 'has a clickable link edit car that brings the user to /cars/car_id/edit' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
             what_line_of_car: "4Runner",
             year: 2005,
@@ -22,7 +22,7 @@ RSpec.describe '' do
         
         visit "/cars/#{car_1.id}"
 
-        click_link("Update #{car_1.brand_of_car}")
+        click_link("Edit #{car_1.brand_of_car}")
        
         expect(current_path).to eq("/cars/#{car_1.id}/edit")
     end
@@ -40,7 +40,7 @@ RSpec.describe '' do
         fill_in('Year', with: 2005)
         fill_in('Is used', with: true)
 
-        click_button("Update #{car_1.brand_of_car}")
+        click_button("Edit #{car_1.brand_of_car}")
      
         expect(current_path).to eq("/cars/#{car_1.id}")
         expect(page).to have_content("Toyota")

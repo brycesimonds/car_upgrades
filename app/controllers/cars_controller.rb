@@ -21,6 +21,6 @@ class CarsController < ApplicationController
     end
 
     def edit
-        
+        @car = Car.find(params[:car_id])
     end
 end
