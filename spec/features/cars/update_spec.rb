@@ -27,6 +27,28 @@ RSpec.describe '' do
         expect(current_path).to eq("/cars/#{car_1.id}/edit")
     end
 
+    it 'car edit a car' do 
+        car_1 = Car.create!(brand_of_car: "Toyot",
+            what_line_of_car: "4Run",
+            year: 2009,
+            is_used: false)
+
+        visit "/cars/#{car_1.id}/edit"
+
+        fill_in('Brand of car', with: "Toyota")
+        fill_in('What line of car', with: "4Runner")
+        fill_in('Year', with: 2005)
+        fill_in('Is used', with: true)
+
+        click_button("Update #{car_1.brand_of_car}")
+     
+        expect(current_path).to eq("/cars/#{car_1.id}")
+        expect(page).to have_content("Toyota")
+        expect(page).to have_content("4Runner")
+        expect(page).to have_content("2005")
+        expect(page).to have_content("true")
+    end
+
     it 'displays a link at the top of the page that says Upgrades Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
