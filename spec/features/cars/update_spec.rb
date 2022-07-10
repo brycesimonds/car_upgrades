@@ -1,16 +1,3 @@
-# User Story 12, Parent Update 
-
-# As a visitor
-# When I visit a parent show page
-# Then I see a link to update the parent "Update Parent"
-# When I click the link "Update Parent"
-# Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
-# When I fill out the form with updated information
-# And I click the button to submit the form
-# Then a `PATCH` request is sent to '/parents/:id',
-# the parent's info is updated,
-# and I am redirected to the Parent's Show page where I see the parent's updated info
-
 require 'rails_helper'
 
 RSpec.describe '' do
@@ -21,7 +8,7 @@ RSpec.describe '' do
             is_used: true)
         
         visit "/cars/#{car_1.id}"
-
+    
         click_link("Edit #{car_1.brand_of_car}")
        
         expect(current_path).to eq("/cars/#{car_1.id}/edit")
@@ -34,14 +21,14 @@ RSpec.describe '' do
             is_used: false)
 
         visit "/cars/#{car_1.id}/edit"
-
+        
         fill_in('Brand of car', with: "Toyota")
         fill_in('What line of car', with: "4Runner")
         fill_in('Year', with: 2005)
         fill_in('Is used', with: true)
 
         click_button("Edit #{car_1.brand_of_car}")
-     
+
         expect(current_path).to eq("/cars/#{car_1.id}")
         expect(page).to have_content("Toyota")
         expect(page).to have_content("4Runner")
