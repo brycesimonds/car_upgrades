@@ -12,10 +12,21 @@ class CarsController < ApplicationController
     end
 
     def create 
-        car = Car.create(brand_of_car: params[:brand_of_car], 
-                         what_line_of_car: params[:what_line_of_car],
-                         year: params[:year],
-                         is_used: params[:is_used])
+        car = Car.create(car_params)
         redirect_to '/cars'
+    end
+
+    def car_params
+        params.permit(:brand_of_car, :what_line_of_car, :year, :is_used)
+    end
+
+    def edit
+        @car = Car.find(params[:car_id])
+    end
+
+    def update
+        car = Car.find(params[:id])
+        car.update(car_params)
+        redirect_to "/cars/#{car.id}"
     end
 end

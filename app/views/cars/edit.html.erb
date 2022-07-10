@@ -1,0 +1,17 @@
+<h3>Navigation Links</h3>
+<ul id="nav_links">
+    <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
+    <li><%= link_to 'Cars Index', '/cars' %></li>
+</ul>
+
+<%= form_with url: "/cars/#{@car.id}", method: :patch, local: true do |form| %>
+    <%= form.label :brand_of_car %>
+    <%= form.text_field :brand_of_car %>
+    <%= form.label :what_line_of_car %>
+    <%= form.text_field :what_line_of_car %>
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+    <%= form.label :is_used %>
+    <%= form.text_field :is_used %>
+    <%= form.submit "Edit #{@car.brand_of_car}"%>
+<% end %> 
