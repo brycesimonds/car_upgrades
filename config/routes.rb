@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/cars/:id', to: 'cars#show'
   get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
   get '/cars/:car_id/edit', to: 'cars#edit'
+
+  get 'cars/:id/upgrades/new', to: 'car_upgrades#new'
   
   post 'cars', to: 'cars#create'
   patch 'cars/:id', to: 'cars#update'

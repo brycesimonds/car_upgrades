@@ -1,20 +1,42 @@
+# User Story 13, Parent Child Creation 
+
+# As a visitor
+# When I visit a Parent Childs Index page
+# Then I see a link to add a new adoptable child for that parent "Create Child"
+# When I click the link
+# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+
+
+# When I fill in the form with the child's attributes:
+# And I click the button "Create Child"
+# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+# a new child object/row is created for that parent,
+# and I am redirected to the Parent Childs Index page where I can see the new child listed
+
 require 'rails_helper'
 
-RSpec.describe 'updating a car' do
-    it 'has a clickable link edit car that brings the user to /cars/car_id/edit' do 
+RSpec.describe 'can create a new upgrade for a specific car' do
+    it 'has a clickable link new upgrade that brings the user to /cars/car_id/upgrades/new' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
-            what_line_of_car: "4Runner",
-            year: 2005,
-            is_used: true)
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
         
-        visit "/cars/#{car_1.id}"
+        visit "/cars/#{car_1.id}/upgrades"
     
-        click_link("Edit #{car_1.brand_of_car}")
+        click_link('Create Upgrade')
        
-        expect(current_path).to eq("/cars/#{car_1.id}/edit")
+        expect(current_path).to eq("/cars/#{car_1.id}/upgrades/new")
     end
 
-    it 'car edit a car' do 
+    xit 'car edit a car' do 
         car_1 = Car.create!(brand_of_car: "Toyot",
             what_line_of_car: "4Run",
             year: 2009,
@@ -36,7 +58,7 @@ RSpec.describe 'updating a car' do
         expect(page).to have_content("true")
     end
 
-    it 'displays a link at the top of the page that says Upgrades Index' do
+    xit 'displays a link at the top of the page that says Upgrades Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -57,7 +79,8 @@ RSpec.describe 'updating a car' do
             expect(page).to have_content("Upgrades Index")
         end
     end
-    it 'can click on the link and go to the Upgrades Index' do
+
+    xit 'can click on the link and go to the Upgrades Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -79,7 +102,7 @@ RSpec.describe 'updating a car' do
         expect(current_path).to eq('/upgrades')
     end
 
-    it 'displays a link at the top of the page that says Cars Index' do
+    xit 'displays a link at the top of the page that says Cars Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -100,7 +123,8 @@ RSpec.describe 'updating a car' do
             expect(page).to have_content("Cars Index")
         end
     end
-    it 'can click on the link and go to the Cars Index' do
+
+    xit 'can click on the link and go to the Cars Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -122,7 +146,7 @@ RSpec.describe 'updating a car' do
         expect(current_path).to eq('/cars')
     end
 
-    it 'displays a link at the top of the page that says go to this cars upgrades index' do
+    xit 'displays a link at the top of the page that says go to this cars upgrades index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -144,7 +168,7 @@ RSpec.describe 'updating a car' do
         end
     end
 
-    it 'can click on the link and go to the cars specific upgrade index' do
+    xit 'can click on the link and go to the cars specific upgrade index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",

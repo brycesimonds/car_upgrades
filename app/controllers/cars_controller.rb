@@ -16,10 +16,6 @@ class CarsController < ApplicationController
         redirect_to '/cars'
     end
 
-    def car_params
-        params.permit(:brand_of_car, :what_line_of_car, :year, :is_used)
-    end
-
     def edit
         @car = Car.find(params[:car_id])
     end
@@ -28,5 +24,10 @@ class CarsController < ApplicationController
         car = Car.find(params[:id])
         car.update(car_params)
         redirect_to "/cars/#{car.id}"
+    end
+
+private 
+    def car_params
+        params.permit(:brand_of_car, :what_line_of_car, :year, :is_used)
     end
 end
