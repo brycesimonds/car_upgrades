@@ -122,4 +122,29 @@ RSpec.describe "upgrades show page", type: :feature do
 
         expect(current_path).to eq('/cars')
     end
+
+    it 'displays a link on the page that says Update Upgrade and will redirect to /upgrades/:upgrade_id/edit' do 
+
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false,)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true,)
+
+        visit "/upgrades/#{upgrade_1.id}"
+
+        within "#nav_links" do 
+            expect(page).to have_link("Update Upgrade")
+        end
+        
+        click_link 'Update Upgrade'
+
+        expect(current_path).to eq("/upgrades/#{upgrade_1.id}/edit")
+    end 
 end 
