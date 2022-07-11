@@ -2,8 +2,7 @@
 <ul id="nav_links">
     <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
     <li><%= link_to 'Cars Index', '/cars' %></li>
-    <%# <li><%= link_to 'Create Upgrade', "/cars/#{@car.id}/upgrades/new"%></li> %> #come back
-    <li><%= link_to 'Create Upgrade', "/cars/:id/upgrades/new"%></li> #come back 
+    <li><%= link_to 'Create Upgrade', "/cars/#{@car.id}/upgrades/new"%></li>
 </ul>
 
 <% @upgrades.each do |upgrade| %>
