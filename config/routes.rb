@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post 'cars', to: 'cars#create'
   patch 'cars/:id', to: 'cars#update'
 
+  get "/upgrades/:upgrade_id/edit", to: 'upgrades#edit'
   get '/upgrades', to: 'upgrades#index'
   get '/upgrades/:id', to: 'upgrades#show'
 end
