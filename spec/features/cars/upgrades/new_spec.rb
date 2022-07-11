@@ -1,38 +1,43 @@
 require 'rails_helper'
 
-RSpec.describe 'updating a car' do
-    it 'has a clickable link edit car that brings the user to /cars/car_id/edit' do 
+RSpec.describe 'can create a new upgrade for a specific car' do
+    it 'has a clickable link new upgrade that brings the user to /cars/car_id/upgrades/new' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        car_1.upgrades.create!(car_part_name: "Suspension",
+                               cost_of_part: 1200,
+                               need_mechanic: false)
+        car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                               cost_of_part: 7000,
+                               need_mechanic: true)
+        
+        visit "/cars/#{car_1.id}/upgrades"
+    
+        click_link('Create Upgrade')
+       
+        expect(current_path).to eq("/cars/#{car_1.id}/upgrades/new")
+    end
+
+    it 'can create an upgrade for the specific car' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
             what_line_of_car: "4Runner",
             year: 2005,
             is_used: true)
+
+        visit "/cars/#{car_1.id}/upgrades/new"
         
-        visit "/cars/#{car_1.id}"
-    
-        click_link("Edit #{car_1.brand_of_car}")
-       
-        expect(current_path).to eq("/cars/#{car_1.id}/edit")
-    end
+        fill_in('Car part name', with: "Suspension")
+        fill_in('Cost of part', with: 2000)
+        fill_in('Need mechanic', with: true)
 
-    it 'car edit a car' do 
-        car_1 = Car.create!(brand_of_car: "Toyot",
-            what_line_of_car: "4Run",
-            year: 2009,
-            is_used: false)
+        click_button("Create Upgrade")
 
-        visit "/cars/#{car_1.id}/edit"
-        
-        fill_in('Brand of car', with: "Toyota")
-        fill_in('What line of car', with: "4Runner")
-        fill_in('Year', with: 2005)
-        fill_in('Is used', with: true)
-
-        click_button("Edit #{car_1.brand_of_car}")
-
-        expect(current_path).to eq("/cars/#{car_1.id}")
-        expect(page).to have_content("Toyota")
-        expect(page).to have_content("4Runner")
-        expect(page).to have_content("2005")
+        expect(current_path).to eq("/cars/#{car_1.id}/upgrades")
+        expect(page).to have_content("Suspension")
+        expect(page).to have_content("2000")
         expect(page).to have_content("true")
     end
 
@@ -57,6 +62,7 @@ RSpec.describe 'updating a car' do
             expect(page).to have_content("Upgrades Index")
         end
     end
+
     it 'can click on the link and go to the Upgrades Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",
@@ -100,6 +106,7 @@ RSpec.describe 'updating a car' do
             expect(page).to have_content("Cars Index")
         end
     end
+
     it 'can click on the link and go to the Cars Index' do
         Upgrade.destroy_all
         car_1 = Car.create!(brand_of_car: "Toyota",

@@ -9,7 +9,7 @@ RSpec.describe 'the creation of a new Car' do
         expect(current_path).to eq('/cars/new')
     end
 
-    it 'car create a new car' do 
+    it 'can create a new car' do 
         visit '/cars/new'
 
         fill_in('Brand of car', with: "Honda")
