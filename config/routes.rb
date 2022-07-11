@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   get '/cars/new', to: 'cars#new'
   get '/cars', to: 'cars#index'
   get '/cars/:id', to: 'cars#show'
-  get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
   get '/cars/:car_id/edit', to: 'cars#edit'
+  post '/cars', to: 'cars#create'
+  patch '/cars/:id', to: 'cars#update'
 
-  get 'cars/:car_id/upgrades/new', to: 'car_upgrades#new'
-
+  get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
+  get '/cars/:car_id/upgrades/new', to: 'car_upgrades#new'
   post '/cars/:car_id/upgrades', to: 'car_upgrades#create'
   
-  post 'cars', to: 'cars#create'
-  patch 'cars/:id', to: 'cars#update'
-
+  get "/upgrades/:upgrade_id/edit", to: 'upgrades#edit'
   get '/upgrades', to: 'upgrades#index'
+  patch '/upgrades/:id', to: 'upgrades#update'
   get '/upgrades/:id', to: 'upgrades#show'
 end
