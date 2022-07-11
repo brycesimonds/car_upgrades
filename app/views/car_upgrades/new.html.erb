@@ -3,3 +3,13 @@
     <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
     <li><%= link_to 'Cars Index', '/cars' %></li>
 </ul>
+
+<%= form_with url: "/cars/#{@car.id}/upgrades", method: :post, local: true do |form| %>
+    <%= form.label :car_part_name %>
+    <%= form.text_field :car_part_name %>
+    <%= form.label :cost_of_part %>
+    <%= form.text_field :cost_of_part %>
+    <%= form.label :need_mechanic %>
+    <%= form.text_field :need_mechanic %>
+    <%= form.submit "Create Upgrade"%>
+<% end %> 
