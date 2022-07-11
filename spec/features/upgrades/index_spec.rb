@@ -119,4 +119,38 @@ RSpec.describe "upgrades index page", type: :feature do
 
         expect(current_path).to eq('/cars')
     end 
+
+
+
+
+    # User Story 15, Child Index only shows `true` Records 
+
+    # As a visitor
+    # When I visit the child index
+    # Then I only see records where the boolean column is `true`
+
+
+
+    it 'has a link to show only true records' do 
+        car_1 = Car.create!(id: 1,
+                            brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = Upgrade.create!(car_part_name: "Suspension",
+                                    cost_of_part: 1200,
+                                    need_mechanic: false,
+                                    car_id: 1)
+        upgrade_2 = Upgrade.create!(car_part_name: "Engine Replacement",
+                                    cost_of_part: 7000,
+                                    need_mechanic: true,
+                                    car_id: 1)
+
+        visit "/upgrades"
+
+        within "#nav_links" do 
+        expect(page).to have_link("Show True Records")
+        end
+    end
 end
