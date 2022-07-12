@@ -173,14 +173,12 @@ RSpec.describe "upgrades index page", type: :feature do
                                            need_mechanic: true)
 
         visit '/upgrades'
-
-        expect(page).to have_link("Click Here To Edit This #{upgrade_1.car_part_name}")
+  
         expect(page).to have_link("Click Here To Edit This #{upgrade_2.car_part_name}")
-        expect(page).to have_link("Click Here To Edit This #{upgrade_3.car_part_name}")
         expect(page).to have_link("Click Here To Edit This #{upgrade_4.car_part_name}")
     end
 
-    xit 'after clicking edit next to parent, taken to parent edit page' do 
+    it 'after clicking edit next to parent, taken to parent edit page' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
                             year: 2005,
@@ -201,8 +199,8 @@ RSpec.describe "upgrades index page", type: :feature do
 
         visit '/upgrades'
         
-        click_link "Click Here To Edit This Toyota"
+        click_link "Click Here To Edit This Engine Replacement"
 
-        expect(current_path).to eq("/cars/#{car_1.id}/edit")
+        expect(current_path).to eq("/upgrades/#{upgrade_2.id}/edit")
     end
 end
