@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
     def index
-        @cars = Car.all.order(created_at: :desc)
+        @cars = Car.sort_created_at
     end
 
     def show

@@ -9,5 +9,9 @@ class Car < ApplicationRecord
     def upgrade_count
         upgrades.count
     end
+
+    def self.sort_created_at
+        order(created_at: :desc)
+    end
 end
 
