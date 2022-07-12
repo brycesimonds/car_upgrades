@@ -169,18 +169,6 @@ RSpec.describe "cars show page", type: :feature do
         expect(current_path).to eq("/cars/#{car_1.id}/upgrades")
     end
 
-
-    # User Story 19, Parent Delete 
-
-    # As a visitor
-    # When I visit a parent show page
-    # Then I see a link to delete the parent
-    # When I click the link "Delete Parent"
-    # Then a 'DELETE' request is sent to '/parents/:id',
-    # the parent is deleted, and all child records are deleted
-    # and I am redirected to the parent index page where I no longer see this parent
-
-
     it 'can delete a car record' do
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
@@ -205,4 +193,30 @@ RSpec.describe "cars show page", type: :feature do
             expect(page).to have_content("Delete Record Of This #{car_1.brand_of_car}")
         end
     end
+
+        it 'can delete a car record' do
+            car_1 = Car.create!(brand_of_car: "Toyota",
+                                what_line_of_car: "4Runner",
+                                year: 2005,
+                                is_used: true)
+        
+            car_1.upgrades.create!(car_part_name: "Suspension",
+                                cost_of_part: 1200,
+                                need_mechanic: false)
+            car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                cost_of_part: 7000,
+                                need_mechanic: true)
+
+            car_2 = Car.create!(brand_of_car: "Ford",
+                                what_line_of_car: "Taurus",
+                                year: 2022,
+                                is_used: false)
+            
+            visit "/cars/#{car_1.id}"
+
+            click_link "Delete Record Of This #{car_1.brand_of_car}"
+
+            expect(current_path).to eq("/cars")
+            expect(page).to_not have_content("Toyota")
+        end
 end 

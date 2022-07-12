@@ -4,7 +4,7 @@
     <li><%= link_to 'Cars Index', '/cars' %></li>
     <li><%= link_to 'This cars upgrades index', "/cars/#{@car.id}/upgrades" %></li>
     <li><%= link_to "Edit #{@car.brand_of_car}", "/cars/#{@car.id}/edit" %></li>
-    <li><%= link_to "Delete Record Of This #{@car.brand_of_car}", "/cars/#{@car.id}" %></li>
+    <li><%= link_to "Delete Record Of This #{@car.brand_of_car}", "/cars/#{@car.id}", method: "delete" %></li>
 
 </ul>
 
