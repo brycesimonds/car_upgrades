@@ -12,7 +12,7 @@
 <% @cars.each_with_index do |car, index| %>
 <div id="car-<%= index%>">
 <ul>
-    <li><%= car.brand_of_car %></li>
+    <li><%= car.brand_of_car %><%= link_to 'Click Here to Edit', "/cars/#{car.id}/edit" %></li>
         <ul>
             <li>Created at: <%= car.created_at %></li>
         </ul>
