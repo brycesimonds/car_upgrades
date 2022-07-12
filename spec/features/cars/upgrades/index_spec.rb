@@ -189,27 +189,6 @@ RSpec.describe 'cars upgrades index', type: :feature do
             expect(page).to have_content("Sort Alphabetically")
         end
     end
-
-    xit 'can click on sort alphabetically and the page is sorted alphabetically' do 
-        car_1 = Car.create!(id:1,
-                            brand_of_car: "Toyota",
-                            what_line_of_car: "4Runner",
-                            year: 2005,
-                            is_used: true)
-
-        car_1.upgrades.create!(car_part_name: "Suspension",
-                              cost_of_part: 1200,
-                              need_mechanic: false)
-        car_1.upgrades.create!(car_part_name: "Engine Replacement",
-                               cost_of_part: 7000,
-                               need_mechanic: true)
-
-        visit "/cars/#{car_1.id}/upgrades"
-
-        click_link 'Cars Index'
-
-        expect(current_path).to eq('/cars')
-    end
 end 
 
 

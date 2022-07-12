@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/cars', to: 'cars#create'
   patch '/cars/:id', to: 'cars#update'
 
+  get '/cars/:car_id/upgrades?sort=activated', to: 'car_upgrades#index'
   get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
   get '/cars/:car_id/upgrades/new', to: 'car_upgrades#new'
   post '/cars/:car_id/upgrades', to: 'car_upgrades#create'
@@ -17,3 +18,4 @@ Rails.application.routes.draw do
   patch '/upgrades/:id', to: 'upgrades#update'
   get '/upgrades/:id', to: 'upgrades#show'
 end
+
