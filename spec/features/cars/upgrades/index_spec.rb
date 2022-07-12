@@ -254,8 +254,8 @@ RSpec.describe 'cars upgrades index', type: :feature do
                                            need_mechanic: true)
 
         visit "/cars/#{car_1.id}/upgrades"
-  
-        expect(page).to have_content("Only return records whose cost of part is more than X")
+
+        expect(page).to have_button("Only return records whose cost of part is more than X")
     end
 end 
 
