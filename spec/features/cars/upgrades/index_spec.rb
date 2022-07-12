@@ -257,6 +257,38 @@ RSpec.describe 'cars upgrades index', type: :feature do
 
         expect(page).to have_button("Only return records whose cost of part is more than X")
     end
+
+    it 'brings visitor back to the current index page with only the records that meet that threshold shown' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit "/cars/#{car_1.id}/upgrades"
+
+        fill_in('Only return records whose cost of part is more than X', with: "2000")
+
+        click_on('Only return records whose cost of part is more than X')
+
+        expect(current_path).to eq("/cars/#{car_1.id}/upgrades")
+        expect(page).to have_content(upgrade_2)
+        expect(page).to have_content(upgrade_4)
+        expect(page).to_not have_content(upgrade_1)
+        expect(page).to_not have_content(upgrade_3)
+    end
 end 
 
 
