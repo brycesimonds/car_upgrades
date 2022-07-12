@@ -8,7 +8,7 @@ class UpgradesController < ApplicationController
     end
 
     def edit
-        @upgrade = Upgrade.find(params[:upgrade_id])
+        @upgrade = Upgrade.find(params[:id])
     end
 
     def update
