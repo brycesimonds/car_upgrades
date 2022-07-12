@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-11T19:38:11-06:00">2022-07-11T19:38:11-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-07-11T20:00:37-06:00">2022-07-11T20:00:37-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="yellow">
-  86.54%
+  83.19%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.96
+       <span class="green">
+         1.04
        </span>
     </span> hits/line
     )
@@ -39,15 +39,15 @@
   <a name="AllFiles"></a>
 
   <div>
-    <b>21</b> files in total.
+    <b>22</b> files in total.
   </div>
 
   <div class="t-line-summary">
-    <b>104</b> relevant lines,
-    <span class="green"><b>90</b> lines covered</span> and
-    <span class="red"><b>14</b> lines missed. </span>
+    <b>119</b> relevant lines,
+    <span class="green"><b>99</b> lines covered</span> and
+    <span class="red"><b>20</b> lines missed. </span>
     (<span class="yellow">
-  86.54%
+  83.19%
 </span>
 )
   </div>
@@ -82,24 +82,35 @@
           </tr>
         
           <tr class="t-file">
+            <td class="strong t-file__name"><a href="#754311b39e8b68f16da15c79e93d3f95d3733e8a" class="src_link" title="app/controllers/car_upgrades_controller.rb">app/controllers/car_upgrades_controller.rb</a></td>
+            <td class="red strong cell--number t-file__coverage">60.00 %</td>
+            <td class="cell--number">25</td>
+            <td class="cell--number">15</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">6</td>
+            <td class="cell--number">2.20</td>
+            
+          </tr>
+        
+          <tr class="t-file">
             <td class="strong t-file__name"><a href="#b37b693c60bfec35977399397aae73ffa37ffc58" class="src_link" title="app/controllers/cars_controller.rb">app/controllers/cars_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">61.11 %</td>
+            <td class="red strong cell--number t-file__coverage">55.56 %</td>
             <td class="cell--number">33</td>
             <td class="cell--number">18</td>
-            <td class="cell--number">11</td>
-            <td class="cell--number">7</td>
-            <td class="cell--number">1.11</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">8</td>
+            <td class="cell--number">0.56</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#4ddbe5a4fa3b9ed0d5c57023aa238cac4d9f3cfa" class="src_link" title="app/controllers/upgrades_controller.rb">app/controllers/upgrades_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">57.14 %</td>
+            <td class="red strong cell--number t-file__coverage">64.29 %</td>
             <td class="cell--number">24</td>
             <td class="cell--number">14</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">6</td>
-            <td class="cell--number">0.57</td>
+            <td class="cell--number">9</td>
+            <td class="cell--number">5</td>
+            <td class="cell--number">0.64</td>
             
           </tr>
         
@@ -371,12 +382,318 @@
 </div>
 
       
+        <div class="source_table" id="754311b39e8b68f16da15c79e93d3f95d3733e8a">
+  <div class="header">
+    <h3>app/controllers/car_upgrades_controller.rb</h3>
+    <h4>
+      <span class="red">
+  60.0%
+</span>
+
+      lines covered
+    </h4>
+
+    
+
+    <div class="t-line-summary">
+      <b>15</b> relevant lines.
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
+    </div>
+
+    
+
+  </div>
+
+  <pre>
+    <ol>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="1">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">class CarUpgradesController &lt; ApplicationController</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="2">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def index</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="3">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">        @car = Car.find(params[:car_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="4">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">        if params[:sort] == &quot;activated&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby">            @upgrades = @car.upgrades.order(&#39;car_part_name&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="6">
+            
+            
+
+            
+
+            <code class="ruby">        else </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="9" data-linenumber="7">
+            <span class="hits">9</span>
+            
+
+            
+
+            <code class="ruby">            @upgrades = @car.upgrades </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">        end </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="12">
+            
+            
+
+            
+
+            <code class="ruby">        @car = Car.find(params[:car_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="13">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="14">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="15">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def create </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="16">
+            
+            
+
+            
+
+            <code class="ruby">        upgrade = Upgrade.create(upgrade_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="17">
+            
+            
+
+            
+
+            <code class="ruby">        car = Car.find(params[:car_id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="18">
+            
+            
+
+            
+
+            <code class="ruby">        redirect_to &quot;/cars/#{car.id}/upgrades&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    private </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def upgrade_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="23">
+            
+            
+
+            
+
+            <code class="ruby">        params.permit(:car_part_name, :cost_of_part, :need_mechanic, :car_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">end</code>
+          </li>
+        </div>
+      
+    </ol>
+  </pre>
+</div>
+
+      
         <div class="source_table" id="b37b693c60bfec35977399397aae73ffa37ffc58">
   <div class="header">
     <h3>app/controllers/cars_controller.rb</h3>
     <h4>
       <span class="red">
-  61.11%
+  55.56%
 </span>
 
       lines covered
@@ -386,8 +703,8 @@
 
     <div class="t-line-summary">
       <b>18</b> relevant lines.
-      <span class="green"><b>11</b> lines covered</span> and
-      <span class="red"><b>7</b> lines missed.</span>
+      <span class="green"><b>10</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
 
     
@@ -420,8 +737,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="10" data-linenumber="3">
-            <span class="hits">10</span>
+          <li class="covered" data-hits="1" data-linenumber="3">
+            <span class="hits">1</span>
             
 
             
@@ -607,8 +924,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="20">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="20">
+            
             
 
             
@@ -770,7 +1087,7 @@
     <h3>app/controllers/upgrades_controller.rb</h3>
     <h4>
       <span class="red">
-  57.14%
+  64.29%
 </span>
 
       lines covered
@@ -780,8 +1097,8 @@
 
     <div class="t-line-summary">
       <b>14</b> relevant lines.
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="green"><b>9</b> lines covered</span> and
+      <span class="red"><b>5</b> lines missed.</span>
     </div>
 
     
@@ -902,8 +1219,8 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="11">
-            
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
             
 
             
