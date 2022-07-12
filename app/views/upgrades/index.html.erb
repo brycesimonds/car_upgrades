@@ -5,7 +5,9 @@
 </ul>
 
 <% @upgrades.each do |upgrade| %>
-    <h1><%= upgrade.car_part_name %></h1>
-    <p>Cost of <%= upgrade.car_part_name %> parts is $<%= upgrade.cost_of_part %></p>
-    <p>Does the upgrade need a mechanic? <%= upgrade.need_mechanic %></p>
+    <% if upgrade.need_mechanic%>
+        <h1><%= upgrade.car_part_name %></h1>
+        <p>Cost of <%= upgrade.car_part_name %> parts is $<%= upgrade.cost_of_part %></p>
+        <p>Does the upgrade need a mechanic? <%= upgrade.need_mechanic %></p>
+    <% end %>
 <% end %>
