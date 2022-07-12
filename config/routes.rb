@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   patch '/cars/:id', to: 'cars#update'
   delete 'cars/:id', to: 'cars#delete'
 
+  get '/cars/:car_id/upgrades?number=:number', to: 'car_upgrades#index'
   get '/cars/:car_id/upgrades?sort=activated', to: 'car_upgrades#index'
   get '/cars/:car_id/upgrades', to: 'car_upgrades#index'
   get '/cars/:car_id/upgrades/new', to: 'car_upgrades#new'

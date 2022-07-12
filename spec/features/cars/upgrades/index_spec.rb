@@ -284,8 +284,8 @@ RSpec.describe 'cars upgrades index', type: :feature do
         click_on('Only return records whose cost of part is more than X')
 
         expect(current_path).to eq("/cars/#{car_1.id}/upgrades")
-        expect(page).to have_content(upgrade_2)
-        expect(page).to have_content(upgrade_4)
+        expect(page).to have_content(upgrade_2.car_part_name)
+        expect(page).to have_content(upgrade_4.car_part_name)
         expect(page).to_not have_content(upgrade_1)
         expect(page).to_not have_content(upgrade_3)
     end
