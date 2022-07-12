@@ -147,4 +147,47 @@ RSpec.describe "upgrades show page", type: :feature do
 
         expect(current_path).to eq("/upgrades/#{upgrade_1.id}/edit")
     end 
+
+    it 'has a link to delete the upgrade' do 
+
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false,)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true,)
+
+        visit "/upgrades/#{upgrade_1.id}"
+
+        within "#nav_links" do 
+            expect(page).to have_link("Delete Record Of This #{upgrade_1.car_part_name}")
+        end
+    end 
+
+    it 'has a link to delete the upgrade' do 
+
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false,)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true,)
+
+        visit "/upgrades/#{upgrade_1.id}"
+        
+        click_on "Delete Record Of This #{upgrade_1.car_part_name}"
+
+        expect(current_path).to eq('/upgrades')
+        expect(page).to_not have_content("Suspension")
+    end 
 end 
