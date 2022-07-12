@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "upgrades index page", type: :feature do 
-    it "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
+    xit "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
+        #User story 15 overrides user story 3, thus this test being skipped 
 
         car_1 = Car.create!(id: 1,
                             brand_of_car: "Toyota",
@@ -119,4 +120,47 @@ RSpec.describe "upgrades index page", type: :feature do
 
         expect(current_path).to eq('/cars')
     end 
+
+
+
+
+    # User Story 15, Child Index only shows `true` Records 
+
+    # As a visitor
+    # When I visit the child index
+    # Then I only see records where the boolean column is `true`
+
+
+
+    it 'shows only true records on the child index page' do
+    #User Story 15 overrides User Story 3
+
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit '/upgrades'
+
+        expect(page).to have_content("Engine Replacement")
+        expect(page).to have_content("7000")
+        expect(page).to have_content("Battery")
+        expect(page).to have_content("8000")
+
+        expect(page).to_not have_content("Suspension")
+        expect(page).to_not have_content("Wheels")
+    end
 end
