@@ -3,6 +3,8 @@
     <li><%= link_to 'Upgrades Index', '/upgrades' %></li>
     <li><%= link_to 'Cars Index', '/cars' %></li>
     <li><%= link_to 'Create Upgrade', "/cars/#{@car.id}/upgrades/new"%></li>
+    <li><%= link_to 'Sort Alphabetically', "/cars/#{@car.id}/upgrades?sort=activated" %></li>
+    
 </ul>
 
 <% @upgrades.each do |upgrade| %>

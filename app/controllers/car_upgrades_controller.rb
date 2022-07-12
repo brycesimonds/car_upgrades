@@ -1,7 +1,11 @@
 class CarUpgradesController < ApplicationController
     def index
         @car = Car.find(params[:car_id])
-        @upgrades = @car.upgrades 
+        if params[:sort] == "activated"
+            @upgrades = @car.upgrades.order('car_part_name')
+        else 
+            @upgrades = @car.upgrades 
+        end 
     end
 
     def new
