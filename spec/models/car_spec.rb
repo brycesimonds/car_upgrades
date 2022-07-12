@@ -14,8 +14,8 @@ describe Car, type: :model do
     end
 
     describe 'model actions' do 
-        describe 'upgrade_count' do
-            it 'counts the number of upgrades associated with the particular car' do
+      describe 'upgrade_count' do
+        it 'counts the number of upgrades associated with the particular car' do
             Upgrade.destroy_all
             car_1 = Car.create!(brand_of_car: "Toyota",
                 what_line_of_car: "4Runner",
@@ -56,5 +56,26 @@ describe Car, type: :model do
             expect(car_3.upgrade_count).to eq(2)
             end 
         end 
-    end
+
+        describe 'self.sort_created_at do' do
+            it 'sorts the class by most recently created first' do
+                Car.destroy_all
+
+                car_1 = Car.create!(brand_of_car: "Toyota",
+                    what_line_of_car: "4Runner",
+                    year: 2005,
+                    is_used: true)
+                car_2 = Car.create!(brand_of_car: "Ford",
+                                what_line_of_car: "Taurus",
+                                year: 2022,
+                                is_used: false)
+                car_3 = Car.create!(brand_of_car: "Kia",
+                                what_line_of_car: "Sorento",
+                                year: 2013,
+                                is_used: true)
+                
+                expect(Car.sort_created_at).to eq([car_3, car_2, car_1])
+                end 
+            end
+        end
 end
