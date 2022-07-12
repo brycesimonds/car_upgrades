@@ -214,15 +214,6 @@ RSpec.describe "upgrades index page", type: :feature do
         expect(page).to have_link("Click Here To Edit This #{car_1.brand_of_car}")
     end
 
-
-
-    # As a visitor
-    # When I visit the parent index page
-    # Next to every parent, I see a link to edit that parent's info
-    # When I click the link
-    # I should be taken to that parents edit page where I can update its information just like in User Story 4
-
-
     it 'after clicking edit next to parent, taken to parent edit page' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
