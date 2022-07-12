@@ -26,6 +26,14 @@ class CarsController < ApplicationController
         redirect_to "/cars/#{car.id}"
     end
 
+    def delete
+       upgrades = Upgrade.where(car_id: "#{params[:id]}")
+       car = Car.find(params[:id])
+       upgrades.destroy_all
+       car.destroy
+       redirect_to "/cars"
+    end
+
 private 
     def car_params
         params.permit(:brand_of_car, :what_line_of_car, :year, :is_used)
