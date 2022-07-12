@@ -121,17 +121,6 @@ RSpec.describe "upgrades index page", type: :feature do
         expect(current_path).to eq('/cars')
     end 
 
-
-
-
-    # User Story 15, Child Index only shows `true` Records 
-
-    # As a visitor
-    # When I visit the child index
-    # Then I only see records where the boolean column is `true`
-
-
-
     it 'shows only true records on the child index page' do
     #User Story 15 overrides User Story 3
 
