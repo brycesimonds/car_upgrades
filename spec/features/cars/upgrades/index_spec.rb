@@ -151,13 +151,6 @@ RSpec.describe 'cars upgrades index', type: :feature do
         expect(current_path).to eq('/cars')
     end
 
-#     User Story 16, Sort Parent's Children in Alphabetical Order by name 
-
-    # As a visitor
-    # When I visit the Parent's children Index Page
-    # Then I see a link to sort children in alphabetical order
-    # When I click on the link
-    # I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
     it 'displays a link at the top of the page that says Sort Alphabetically' do 
         car_1 = Car.create!(id:1,
                             brand_of_car: "Toyota",
