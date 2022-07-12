@@ -8,7 +8,7 @@
 </ul>
 
 <% @upgrades.each do |upgrade| %>
-    <h3><%= upgrade.car_part_name %></h3>
+    <h3><%= upgrade.car_part_name %></h3> =>>> <%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %> 
     <ul>
         <li>"Cost of part: <%= upgrade.cost_of_part %>"</li>
         <li>"Does it need a mechanic: <%= upgrade.need_mechanic %>"</li>
