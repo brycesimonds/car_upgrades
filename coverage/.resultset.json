@@ -293,11 +293,22 @@
           null
         ]
       },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/cars_controller.rb": {
+      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/models/upgrade.rb": {
         "lines": [
           1,
           1,
-          10,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/upgrades_controller.rb": {
+        "lines": [
+          1,
+          1,
+          7,
           null,
           null,
           1,
@@ -305,16 +316,7 @@
           null,
           null,
           1,
-          null,
-          null,
-          null,
-          1,
           0,
-          0,
-          null,
-          null,
-          1,
-          1,
           null,
           null,
           1,
@@ -336,7 +338,7 @@
           null
         ]
       },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/upgrades_controller.rb": {
+      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/controllers/cars_controller.rb": {
         "lines": [
           1,
           1,
@@ -348,34 +350,32 @@
           null,
           null,
           1,
+          null,
+          null,
+          null,
+          1,
+          0,
           0,
           null,
           null,
           1,
           0,
+          null,
+          null,
+          1,
           0,
           0,
+          0,
           null,
           null,
           1,
           1,
           0,
           null,
-          null
-        ]
-      },
-      "/Users/bryce.simonds/Desktop/turing/2Module/projects/relational_rails/car_upgrades/app/models/upgrade.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
           null
         ]
       }
     },
-    "timestamp": 1657589891
+    "timestamp": 1657590554
   }
 }

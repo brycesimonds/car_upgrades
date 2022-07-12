@@ -152,4 +152,57 @@ RSpec.describe "upgrades index page", type: :feature do
         expect(page).to_not have_content("Suspension")
         expect(page).to_not have_content("Wheels")
     end
+
+    it 'has an edit link next to every upgrade' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit '/upgrades'
+
+        expect(page).to have_link("Click Here To Edit This #{upgrade_1.car_part_name}")
+        expect(page).to have_link("Click Here To Edit This #{upgrade_2.car_part_name}")
+        expect(page).to have_link("Click Here To Edit This #{upgrade_3.car_part_name}")
+        expect(page).to have_link("Click Here To Edit This #{upgrade_4.car_part_name}")
+    end
+
+    xit 'after clicking edit next to parent, taken to parent edit page' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit '/upgrades'
+        
+        click_link "Click Here To Edit This Toyota"
+
+        expect(current_path).to eq("/cars/#{car_1.id}/edit")
+    end
 end
