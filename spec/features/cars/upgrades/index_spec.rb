@@ -279,7 +279,7 @@ RSpec.describe 'cars upgrades index', type: :feature do
 
         visit "/cars/#{car_1.id}/upgrades"
 
-        fill_in('Only return records whose cost of part is more than X', with: "2000")
+        fill_in('number', with: "2000")
 
         click_on('Only return records whose cost of part is more than X')
 
