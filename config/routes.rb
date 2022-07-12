@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get '/upgrades', to: 'upgrades#index'
   patch '/upgrades/:id', to: 'upgrades#update'
   get '/upgrades/:id', to: 'upgrades#show'
+  delete 'upgrades/:id', to: 'upgrades#delete'
 end
 
