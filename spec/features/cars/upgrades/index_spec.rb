@@ -208,7 +208,7 @@ RSpec.describe 'cars upgrades index', type: :feature do
         expect(page).to have_link("Click Here To Edit This #{upgrade_4.car_part_name}")
     end
 
-    xit 'after clicking edit next to parent, taken to parent edit page' do 
+    it 'after clicking edit next to upgrade, taken to upgrade edit page' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
                             year: 2005,
@@ -227,7 +227,7 @@ RSpec.describe 'cars upgrades index', type: :feature do
                                            cost_of_part: 8000,
                                            need_mechanic: true)
 
-        visit '/upgrades'
+        visit "/cars/#{car_1.id}/upgrades"
         
         click_link "Click Here To Edit This Engine Replacement"
 
