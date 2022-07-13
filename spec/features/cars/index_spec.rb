@@ -238,4 +238,55 @@ RSpec.describe "upgrades index page", type: :feature do
 
         expect(current_path).to eq("/cars/#{car_1.id}/edit")
     end
+
+    it 'has a delete link next to every parent' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+        car_2 = Car.create!(brand_of_car: "Ford",
+                            what_line_of_car: "Taurus",
+                            year: 2022,
+                            is_used: false)
+        car_3 = Car.create!(brand_of_car: "Kia",
+                            what_line_of_car: "Sorento",
+                            year: 2013,
+                            is_used: true)
+        car_4 = Car.create!(brand_of_car: "Rivian",
+                            what_line_of_car: "R1T",
+                            year: 2022,
+                            is_used: false)
+
+        visit '/cars'
+
+        expect(page).to have_link("Click Here To Delete This #{car_1.brand_of_car}")
+    end
+
+    it 'after clicking delete next to parent, taken to parent index page' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+        car_2 = Car.create!(brand_of_car: "Ford",
+                            what_line_of_car: "Taurus",
+                            year: 2022,
+                            is_used: false)
+        car_3 = Car.create!(brand_of_car: "Kia",
+                            what_line_of_car: "Sorento",
+                            year: 2013,
+                            is_used: true)
+        car_4 = Car.create!(brand_of_car: "Rivian",
+                            what_line_of_car: "R1T",
+                            year: 2022,
+                            is_used: false)
+
+        visit '/cars'
+
+        click_link "Click Here To Delete This Toyota"
+
+        expect(current_path).to eq('/cars')
+        expect(page).to_not have_content(car_1.brand_of_car)
+    end
+
+    
 end 

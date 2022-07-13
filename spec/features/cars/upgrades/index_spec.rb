@@ -289,6 +289,58 @@ RSpec.describe 'cars upgrades index', type: :feature do
         expect(page).to_not have_content(upgrade_1)
         expect(page).to_not have_content(upgrade_3)
     end
+
+    it 'has an delete link next to every upgrade' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit "/cars/#{car_1.id}/upgrades"
+  
+        expect(page).to have_link("Click Here To Delete This #{upgrade_2.car_part_name}")
+        expect(page).to have_link("Click Here To Delete This #{upgrade_4.car_part_name}")
+    end
+
+    it 'after clicking delete next to upgrade, taken to upgrade index page' do 
+        car_1 = Car.create!(brand_of_car: "Toyota",
+                            what_line_of_car: "4Runner",
+                            year: 2005,
+                            is_used: true)
+
+        upgrade_1 = car_1.upgrades.create!(car_part_name: "Suspension",
+                                           cost_of_part: 1200,
+                                           need_mechanic: false)
+        upgrade_2 = car_1.upgrades.create!(car_part_name: "Engine Replacement",
+                                           cost_of_part: 7000,
+                                           need_mechanic: true)
+        upgrade_3 = car_1.upgrades.create!(car_part_name: "Wheels",
+                                           cost_of_part: 1100,
+                                           need_mechanic: false)
+        upgrade_4 = car_1.upgrades.create!(car_part_name: "Battery",
+                                           cost_of_part: 8000,
+                                           need_mechanic: true)
+
+        visit "/cars/#{car_1.id}/upgrades"
+        
+        click_link "Click Here To Delete This Engine Replacement"
+
+        expect(current_path).to eq("/upgrades")
+        expect(page).to_not have_content("Engine Replacement")
+    end
 end 
 
 

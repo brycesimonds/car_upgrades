@@ -6,15 +6,17 @@
     <li><%= link_to 'Sort Alphabetically', "/cars/#{@car.id}/upgrades?sort=activated" %></li>
 </ul>
 
-<%= form_with url: "/cars/#{@car.id}/upgrades?morethan=activated", method: :get, local: true, skip_enforcing_utf8: true do |form| %>
+<%= form_with url: "/cars/#{@car.id}/upgrades?number=", method: :get, local: true, skip_enforcing_utf8: true do |form| %>
     <%= form.label :number, "Enter Number:" %>
     <%= form.number_field :number %>
     <%= form.submit "Only return records whose cost of part is more than X", name: nil %>
 <% end %> 
 
 <% @upgrades.each do |upgrade| %>
-    <h3><%= upgrade.car_part_name %></h3> =>>> <%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %> 
+    <h3><%= upgrade.car_part_name %></h3>
     <ul>
+        <li><%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %></li>
+        <li><%= link_to "Click Here To Delete This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}", method: :delete %> 
         <li>"Cost of part: <%= upgrade.cost_of_part %>"</li>
         <li>"Does it need a mechanic: <%= upgrade.need_mechanic %>"</li>
     </ul>

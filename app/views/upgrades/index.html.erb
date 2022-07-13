@@ -6,8 +6,11 @@
 
 <% @upgrades.each do |upgrade| %>
     <% if upgrade.need_mechanic%>
-        <h1><%= upgrade.car_part_name %></h1> =>>> <%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %> 
-        <p>Cost of <%= upgrade.car_part_name %> parts is $<%= upgrade.cost_of_part %></p>
-        <p>Does the upgrade need a mechanic? <%= upgrade.need_mechanic %></p>
+        <h1><%= upgrade.car_part_name %></h1> 
+        <ul>
+            <li><%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %> 
+            <li><%= link_to "Click Here To Delete This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}", method: :delete %> 
+            <li>Cost of <%= upgrade.car_part_name %> parts is $<%= upgrade.cost_of_part %></li>
+            <li>Does the upgrade need a mechanic? <%= upgrade.need_mechanic %></li>
     <% end %>
 <% end %>
