@@ -4,9 +4,9 @@ class CarUpgradesController < ApplicationController
         if params[:sort] == "activated"
             @upgrades = @car.upgrades.order('car_part_name')
         elsif params[:number]
-            threshold_input = params[:number]
-            integer = threshold_input.to_i
-            @upgrades = @car.upgrades.where('cost_of_part > ?', integer)
+            threshold_number_input = params[:number]
+            integer_version_of_threshold = threshold_number_input.to_i
+            @upgrades = @car.upgrades.where('cost_of_part > ?', integer_version_of_threshold)
         else 
             @upgrades = @car.upgrades 
         end 

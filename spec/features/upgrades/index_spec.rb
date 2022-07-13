@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "upgrades index page", type: :feature do 
-    xit "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
-        #User story 15 overrides user story 3, thus this test being skipped 
+    it "can see all the upgrades car parts names, cost of part, and if needs a mechanic" do 
 
         car_1 = Car.create!(id: 1,
                             brand_of_car: "Toyota",
@@ -12,7 +11,7 @@ RSpec.describe "upgrades index page", type: :feature do
 
         upgrade_1 = Upgrade.create!(car_part_name: "Suspension",
                                     cost_of_part: 1200,
-                                    need_mechanic: false,
+                                    need_mechanic: true,
                                     car_id: 1)
         upgrade_2 = Upgrade.create!(car_part_name: "Engine Replacement",
                                     cost_of_part: 7000,
@@ -122,7 +121,6 @@ RSpec.describe "upgrades index page", type: :feature do
     end 
 
     it 'shows only true records on the child index page' do
-    #User Story 15 overrides User Story 3
 
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
