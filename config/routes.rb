@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get '/cars/new', to: 'cars#new'
   get '/cars', to: 'cars#index'
+  delete '/cars', to: 'cars#delete'
   get '/cars/:id', to: 'cars#show'
   get '/cars/:id/edit', to: 'cars#edit'
   post '/cars', to: 'cars#create'

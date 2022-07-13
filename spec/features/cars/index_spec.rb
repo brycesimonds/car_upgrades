@@ -262,7 +262,7 @@ RSpec.describe "upgrades index page", type: :feature do
         expect(page).to have_link("Click Here To Delete This #{car_1.brand_of_car}")
     end
 
-    xit 'after clicking delete next to parent, taken to parent index page' do 
+    it 'after clicking delete next to parent, taken to parent index page' do 
         car_1 = Car.create!(brand_of_car: "Toyota",
                             what_line_of_car: "4Runner",
                             year: 2005,
