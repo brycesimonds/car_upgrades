@@ -13,8 +13,10 @@
 <% end %> 
 
 <% @upgrades.each do |upgrade| %>
-    <h3><%= upgrade.car_part_name %></h3> =>>> <%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %> 
+    <h3><%= upgrade.car_part_name %></h3>
     <ul>
+        <li><%= link_to "Click Here To Edit This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}/edit" %></li>
+        <li><%= link_to "Click Here To Delete This #{upgrade.car_part_name} ", "/upgrades/#{upgrade.id}", method: :delete %> 
         <li>"Cost of part: <%= upgrade.cost_of_part %>"</li>
         <li>"Does it need a mechanic: <%= upgrade.need_mechanic %>"</li>
     </ul>
