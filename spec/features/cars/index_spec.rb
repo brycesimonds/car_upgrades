@@ -281,7 +281,7 @@ RSpec.describe "upgrades index page", type: :feature do
                             is_used: false)
 
         visit '/cars'
-        
+
         click_link "Click Here To Delete This Toyota"
 
         expect(current_path).to eq('/cars')
