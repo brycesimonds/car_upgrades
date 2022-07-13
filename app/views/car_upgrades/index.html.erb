@@ -6,7 +6,7 @@
     <li><%= link_to 'Sort Alphabetically', "/cars/#{@car.id}/upgrades?sort=activated" %></li>
 </ul>
 
-<%= form_with url: "/cars/#{@car.id}/upgrades?morethan=activated", method: :get, local: true, skip_enforcing_utf8: true do |form| %>
+<%= form_with url: "/cars/#{@car.id}/upgrades?number=", method: :get, local: true, skip_enforcing_utf8: true do |form| %>
     <%= form.label :number, "Enter Number:" %>
     <%= form.number_field :number %>
     <%= form.submit "Only return records whose cost of part is more than X", name: nil %>
